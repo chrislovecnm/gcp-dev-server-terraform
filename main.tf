@@ -45,6 +45,8 @@ resource "google_compute_instance" "my_dev_server" {
       gnupg-agent software-properties-common git zsh \
       docker-ce docker-ce-cli containerd.io powerline fonts-powerline
     curl https://raw.githubusercontent.com/chrislovecnm/golang-tools-install-script/master/goinstall.sh | sudo bash
+    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+    sudo mv kustomize /usr/local/bin/
     EOF
 
   // Necessary scopes for administering kubernetes.
