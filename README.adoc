@@ -1,0 +1,36 @@
+= Terraform to create GCP dev box
+
+This repo has an terraform example to create a dev server.
+
+== Creating the server
+
+- clone this repo
+- install gcloud and terraform
+- setup gcloud if you have not
+- `gcloud auth application-default login`
+- `./generate-tfvars.sh`
+- `terraform plan`
+- `terraform apply`
+- login to you server
+
+[source,bash]
+----
+gcloud beta compute ssh --zone "us-central1-a" "my-gcp-dev-box" --tunnel-through-iap --project "$(gcloud config get-value project)"
+----
+
+== Updating a group to use docker
+
+- login to the server
+- `sudo gpasswd -a $USER docker`
+- `exec su -l $USER`
+- `docker ps`
+
+== What is installed
+
+We are installing a bunch of binaries on the server
+
+- apt-transport-https
+- git
+- zsh
+- docker (latest from docker)
+- go (latest version from longsleep/golang-backports)
