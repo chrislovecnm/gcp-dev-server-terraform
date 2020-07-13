@@ -25,6 +25,10 @@ gcloud beta compute ssh --zone "us-central1-a" "my-gcp-dev-box" --tunnel-through
 - `exec su -l $USER`
 - `docker ps`
 
+== Destroying your VM
+
+- `terraform destroy`
+
 == What is installed
 
 We are installing a bunch of binaries on the server
