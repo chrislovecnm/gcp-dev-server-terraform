@@ -33,17 +33,18 @@ resource "google_compute_instance" "my_dev_server" {
 
   metadata_startup_script = <<-EOF
     sudo apt-get update
-    sudo apt-get install software-properties-common
+    sudo apt-get install -y software-properties-common
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
-    sudo add-apt-repository \
+    sudo add-apt-repository -y \
      "deb [arch=amd64] https://download.docker.com/linux/debian \
      $(lsb_release -cs) \
      stable"
-    sudo add-apt-repository -y -u ppa:longsleep/golang-backports
+    sudo apt-get update
     sudo apt-get install -y kubectl apt-transport-https ca-certificates curl \
-      gnupg-agent software-properties-common git zsh golang-go \
+      gnupg-agent software-properties-common git zsh \
       docker-ce docker-ce-cli containerd.io powerline fonts-powerline
+    curl https://raw.githubusercontent.com/chrislovecnm/golang-tools-install-script/master/goinstall.sh | sudo bash
     EOF
 
   // Necessary scopes for administering kubernetes.
