@@ -24,10 +24,12 @@ provider "google" {
 
 resource "google_compute_instance" "my_dev_server" {
   name         = "my-gcp-dev-box"
-  machine_type = "n1-standard-4"
+  machine_type = "n1-standard-8"
+  allow_stopping_for_update = true
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-10"
+      size  = 100
     }
   }
 
@@ -43,7 +45,7 @@ resource "google_compute_instance" "my_dev_server" {
     sudo apt-get update
     sudo apt-get install -y kubectl apt-transport-https ca-certificates curl \
       gnupg-agent software-properties-common git zsh \
-      docker-ce docker-ce-cli containerd.io powerline fonts-powerline
+      docker-ce docker-ce-cli containerd.io powerline fonts-powerline htop
     curl https://raw.githubusercontent.com/chrislovecnm/golang-tools-install-script/master/goinstall.sh | sudo bash
     curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
     sudo mv kustomize /usr/local/bin/
@@ -51,8 +53,8 @@ resource "google_compute_instance" "my_dev_server" {
 
   // Necessary scopes for administering kubernetes.
   service_account {
-    email  = var.service_account_email
-    scopes = ["userinfo-email", "compute-ro", "storage-ro", "cloud-platform", "service-control", "monitoring-write"]
+    email  = google_service_account.admin.email
+    scopes = ["userinfo-email", "compute-ro", "storage-ro", "cloud-platform"]
   }
 
   network_interface {

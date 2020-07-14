@@ -18,7 +18,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 
-echo "set backspace=indent,eol,start" >> ~/.vimrc
 
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/dist/start/nerdtree
 git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
@@ -26,3 +25,19 @@ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/dist/start/vim-f
 
 git clone https://github.com/chrislovecnm/dotfiles.git ~/.dotfiles
 echo "source $HOME/.dotfiles/zshrc-include" >> $HOME/.zshrc
+
+git config --global user.name "chrislovecnm"
+git config --global user.email clove@cnmconsulting.net
+git config --global core.editor vim
+
+git clone https://github.com/chrislovecnm/cockroach-operator ~/Workspace/src/github.com/cockroachdb/cockroach-operator
+
+cd ~/Workspace/src/github.com/cockroachdb/cockroach-operator
+gra upstream https://github.com/cockroachdb/cockroach-operator.git
+
+gcloud init
+
+# TODO
+# init vim-go
+echo "set backspace=indent,eol,start" >> ~/.vimrc
+# vimrc for vim-go

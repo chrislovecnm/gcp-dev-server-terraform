@@ -27,3 +27,21 @@ resource "google_project_iam_member" "kube-api-admin" {
   role    = "roles/container.admin"
   member  = "serviceAccount:${google_service_account.admin.email}"
 }
+
+resource "google_project_iam_member" "kube-cluster-admin" {
+  project = var.project_id
+  role    = "roles/container.clusterAdmin"
+  member  = "serviceAccount:${google_service_account.admin.email}"
+}
+
+resource "google_project_iam_member" "compute-admin" {
+  project = var.project_id
+  role    = "roles/compute.admin"
+  member  = "serviceAccount:${google_service_account.admin.email}"
+}
+
+resource "google_project_iam_member" "storage-admin" {
+  project = var.project_id
+  role    = "roles/storage.admin"
+  member  = "serviceAccount:${google_service_account.admin.email}"
+}
