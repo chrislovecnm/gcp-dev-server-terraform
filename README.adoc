@@ -22,7 +22,7 @@ gcloud beta compute ssh --zone "us-central1-a" "my-gcp-dev-box" --tunnel-through
 
 - login to the server
 - `sudo gpasswd -a $USER docker`
-- `exec su -l $USER`
+- `logout and log back in
 - `docker ps`
 
 == Destroying your VM
