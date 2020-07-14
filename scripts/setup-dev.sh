@@ -23,3 +23,6 @@ echo "set backspace=indent,eol,start" >> ~/.vimrc
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/dist/start/nerdtree
 git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/dist/start/vim-fugitive
+
+git clone https://github.com/chrislovecnm/dotfiles.git ~/.dotfiles
+echo "source $HOME/.dotfiles/zshrc-include" >> $HOME/.zshrc
