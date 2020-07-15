@@ -14,10 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
-
 
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/dist/start/nerdtree
 git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
@@ -33,7 +30,8 @@ git config --global core.editor vim
 git clone https://github.com/chrislovecnm/cockroach-operator ~/Workspace/src/github.com/cockroachdb/cockroach-operator
 
 cd ~/Workspace/src/github.com/cockroachdb/cockroach-operator
-gra upstream https://github.com/cockroachdb/cockroach-operator.git
+git remote add upstream https://github.com/cockroachdb/cockroach-operator.git
+cd ~/
 
 gcloud init
 
@@ -41,3 +39,6 @@ gcloud init
 # init vim-go
 echo "set backspace=indent,eol,start" >> ~/.vimrc
 # vimrc for vim-go
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo gpasswd -a $USER docker
