@@ -39,9 +39,11 @@ gcloud init
 # init vim-go
 echo "set backspace=indent,eol,start" >> ~/.vimrc
 # vimrc for vim-go
+git config credential.helper store
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
 echo "source $HOME/.dotfiles/zshrc-include" >> $HOME/.zshrc
 vim +'silent :GoInstallBinaries' +qal
 sudo gpasswd -a $USER docker
 sudo usermod --shell /bin/zsh $USER
+
