@@ -40,6 +40,12 @@ resource "google_project_iam_member" "compute-admin" {
   member  = "serviceAccount:${google_service_account.admin.email}"
 }
 
+resource "google_project_iam_member" "project-viewer" {
+  project = var.project_id
+  role    = "roles/viewer"
+  member  = "serviceAccount:${google_service_account.admin.email}"
+}
+
 resource "google_project_iam_member" "storage-admin" {
   project = var.project_id
   role    = "roles/storage.admin"

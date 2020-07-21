@@ -35,10 +35,11 @@ cd ~/Workspace/src/github.com/cockroachdb/cockroach-operator
 git remote add upstream https://github.com/cockroachdb/cockroach-operator.git
 cd ~/
 
-gcloud init
+gcloud config set compute/zone us-central1-a
+gcloud config set compute/region us-central1
 git config credential.helper store
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/chrislovecnm/dotfiles.git ~/.dotfiles
 echo "source $HOME/.dotfiles/zshrc-include" >> $HOME/.zshrc
 sudo gpasswd -a $USER docker
