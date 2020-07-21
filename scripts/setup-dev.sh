@@ -20,8 +20,10 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/dist/start/nerd
 git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/dist/start/vim-fugitive
 git clone https://github.com/ctrlpvim/ctrlp.vim ~/.vim/pack/dist/start/ctrlp.vom
+curl -LO https://raw.githubusercontent.com/chrislovecnm/gcp-dev-server-terraform/master/scripts/vimrc 
+mv vimrc $HOME/.vimrc
+vim +'silent :GoInstallBinaries' +qal
 
-git clone https://github.com/chrislovecnm/dotfiles.git ~/.dotfiles
 
 git config --global user.name "chrislovecnm"
 git config --global user.email clove@cnmconsulting.net
@@ -34,16 +36,10 @@ git remote add upstream https://github.com/cockroachdb/cockroach-operator.git
 cd ~/
 
 gcloud init
-
-# TODO
-# init vim-go
-echo "set backspace=indent,eol,start" >> ~/.vimrc
-# vimrc for vim-go
 git config credential.helper store
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
+git clone https://github.com/chrislovecnm/dotfiles.git ~/.dotfiles
 echo "source $HOME/.dotfiles/zshrc-include" >> $HOME/.zshrc
-vim +'silent :GoInstallBinaries' +qal
 sudo gpasswd -a $USER docker
 sudo usermod --shell /bin/zsh $USER
-
