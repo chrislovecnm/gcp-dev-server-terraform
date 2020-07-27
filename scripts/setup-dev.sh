@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# run via sh -c "$(curl -fsSL https://raw.githubusercontent.com/chrislovecnm/gcp-dev-server-terraform/master/scripts/setup-dev.sh)"
+
 git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/dist/start/nerdtree
@@ -22,6 +24,7 @@ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/dist/start/vim-f
 git clone https://github.com/ctrlpvim/ctrlp.vim ~/.vim/pack/dist/start/ctrlp.vom
 curl -LO https://raw.githubusercontent.com/chrislovecnm/gcp-dev-server-terraform/master/scripts/vimrc 
 mv vimrc $HOME/.vimrc
+# this installs the binaries in the wrong place
 vim +'silent :GoInstallBinaries' +qal
 
 
