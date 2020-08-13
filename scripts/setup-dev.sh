@@ -31,6 +31,7 @@ vim +'silent :GoInstallBinaries' +qal
 git config --global user.name "chrislovecnm"
 git config --global user.email clove@cnmconsulting.net
 git config --global core.editor vim
+git config --global credential.helper store 43200
 
 git clone https://github.com/chrislovecnm/cockroach-operator ~/Workspace/src/github.com/cockroachdb/cockroach-operator
 
